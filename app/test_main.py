@@ -15,7 +15,11 @@ from app.main import get_human_age
         (100, 100, [21, 17]),
     ],
 )
-def test_valid_ages(cat_age: int, dog_age: int, expected: list[int]) -> None:
+def test_valid_ages(
+    cat_age: int,
+    dog_age: int,
+    expected: list[int],
+) -> None:
     assert get_human_age(cat_age, dog_age) == expected
 
 
@@ -41,6 +45,9 @@ def test_negative_ages(cat_age: int, dog_age: int) -> None:
         (5, 7.2),
     ],
 )
-def test_invalid_types(cat_age, dog_age) -> None:
+def test_invalid_types(
+    cat_age: object,
+    dog_age: object,
+) -> None:
     with pytest.raises(TypeError):
         get_human_age(cat_age, dog_age)
